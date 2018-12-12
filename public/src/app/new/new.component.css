@@ -1,0 +1,15 @@
+.errorMsg {
+    font-weight: bold;
+    color: red;
+}
+
+.ng-invalid { }
+.ng-valid { }
+.ng-untouched { }
+.ng-touched { }
+.ng-dirty { }
+.ng-pristine { }
+
+.ng-touched .ng-invalid {
+    border-color: red;
+}

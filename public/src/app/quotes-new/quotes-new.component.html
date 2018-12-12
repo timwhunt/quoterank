@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col" *ngIf="author">
+        <p>
+            <a href="#" [routerLink]="['/']" class="mr-4">Home</a>
+        </p>
+        <h4>Add a quote for {{author.name}}</h4>
+        <form (submit)="submitNewQuote()" id="newForm">
+            <div class="form-group">
+                <label for="newQuote">Quote</label>
+                <p class="errorMsg" *ngIf="errMsg.quote">{{errMsg.quote.message}}</p>
+                <input type="text" class="form-control" id="newQuote" name="newQuote" [(ngModel)]="newQuote.quote">
+            </div>
+            <button type="submit" class="btn btn-primary mr-2">Add Quote</button>
+            <button class="btn btn-secondary" [routerLink]="['/quotes', author._id]">Cancel</button>
+        </form>
+    </div>
+</div>

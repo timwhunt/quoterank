@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col" *ngIf="author">
+        <p>
+            <a href="#" [routerLink]="['/']" class="mr-4">Home</a>
+            <a href="#" [routerLink]="['/quotesnew', author._id]" class="mr-4">Add a Quote</a>
+        </p>
+        <h4>Quotes by {{author.name}}</h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Quote</th>
+                <th scope="col">Votes</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let quote of author.quotes">
+                <td>{{quote.quote}}</td>
+                <td>{{quote.votes}}</td>
+                <td>
+                    <button class="btn btn-success btn-sm mr-2" (click)="vote(quote,1)">Vote up</button>
+                    <button class="btn btn-warning btn-sm mr-2" (click)="vote(quote,-1)">Vote down</button>
+                    <button class="btn btn-danger btn-sm mr-2" (click)="delete(quote)">Delete</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
